@@ -153,6 +153,11 @@
                 "title": "{ ✎_ }"
             },
             {
+                "command": "nasc.touchBar.runSelection",
+                "group": "nasc",
+                "title": "{ >{} }"
+            },
+            {
                 "command": "nasc.touchBar.closeGroup",
                 "group": "nasc",
                 "title": " 🅧 "
@@ -374,6 +379,11 @@
                     "command": "editor.action.commentLine",
                     "group": "nasc",
                     "when": "enabledSrcGroup"
+                },
+                {
+                    "command": "nasc.touchBar.runSelection",
+                    "group": "nasc",
+                    "when": "config.nasc-touchbar.runSelection"
                 }
             ]
         },
@@ -496,6 +506,11 @@
                         "type": "boolean",
                         "default": false,
                         "description": "Toggles line comments ( // ) for the current selection"
+                    },
+                    "nasc-touchbar.runSelection": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Runs current selection in default terminal"
                     }
                 }
             }
