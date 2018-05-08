@@ -381,9 +381,14 @@
                     "when": "enabledSrcGroup"
                 },
                 {
-                    "command": "nasc.touchBar.runSelection",
+                    "command": "Powershell.RunSelection",
                     "group": "nasc",
-                    "when": "config.nasc-touchbar.runSelection"
+                    "when": "config.nasc-touchbar.runSelection && editorLangId == 'powershell'"
+                },
+                {
+                    "command": "workbench.action.terminal.runSelectedText",
+                    "group": "nasc",
+                    "when": "config.nasc-touchbar.runSelection && editorLangId != 'powershell'"
                 }
             ]
         },
