@@ -2,7 +2,7 @@
     "name": "nasc-touchbar",
     "displayName": "Nasc VSCode Touchbar",
     "description": "Adds useful tools to your macbook touchbar.",
-    "version": "1.8.1",
+    "version": "1.11.0",
     "publisher": "felipe",
     "engines": {
         "vscode": "^1.17.0"
@@ -12,14 +12,15 @@
         "Other"
     ],
     "keywords": [
-        "macbook",
-        "touch bar",
+        "macbook pro",
         "touchbar",
+        "extra buttons",
+        "shortcuts",
         "vscode",
         "visual studio code",
-        "macbook pro",
+        "macbook",
         "developers",
-        "buttons"
+        "touch bar"
     ],
     "activationEvents": [
         "onCommand:nasc.touchBar.goToDefinition",
@@ -153,14 +154,19 @@
                 "title": "{ ✎_ }"
             },
             {
-                "command": "nasc.touchBar.runSelection",
-                "group": "nasc",
-                "title": "{ >{} }"
-            },
-            {
                 "command": "nasc.touchBar.closeGroup",
                 "group": "nasc",
                 "title": " 🅧 "
+            },
+            {
+                "command": "git.sync",
+                "group": "nasc",
+                "title": "↻"
+            },            
+            {
+                "command": "nasc.touchBar.runSelection",
+                "group": "nasc",
+                "title": "{ >{} }"
             }
         ],
         "menus": {
@@ -253,7 +259,7 @@
                 {
                     "command": "nasc.touchBar.addCursorBelow",
                     "group": "nasc",
-                    "when": "config.nasc-touchbar.addCursorBellow && !enabledGroup"
+                    "when": "config.nasc-touchbar.addCursorBelow && !enabledGroup"
                 },
                 {
                     "command": "nasc.touchBar.addCursorBelow",
@@ -379,6 +385,11 @@
                     "command": "editor.action.commentLine",
                     "group": "nasc",
                     "when": "enabledSrcGroup"
+                },
+                {
+                    "command": "git.sync",
+                    "group": "nasc",
+                    "when": "config.nasc-touchbar.gitSync && !enabledGroup"
                 },
                 {
                     "command": "Powershell.RunSelection",
@@ -512,6 +523,11 @@
                         "default": false,
                         "description": "Toggles line comments ( // ) for the current selection"
                     },
+                    "nasc-touchbar.gitSync": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Git Sync"
+                    },
                     "nasc-touchbar.runSelection": {
                         "type": "boolean",
                         "default": false,
@@ -523,8 +539,12 @@
     },
     "scripts": {
         "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "node ./node_modules/vscode/bin/test"
+        "test": "node ./node_modules/vscode/bin/test",
+        "deploy": "vsce publish minor",
+        "deploy-fix": "vsce publish patch",
+        "deploy-upgrade": "vsce publish major"
     },
+    "license": "MIT",
     "icon": "nasc-macbook-pro-vscode-touch-bar.jpg",
     "devDependencies": {
         "typescript": "^2.5.2",
@@ -534,4 +554,5 @@
         "@types/node": "^7.0.0",
         "@types/mocha": "^2.2.42"
     }
+
 }
