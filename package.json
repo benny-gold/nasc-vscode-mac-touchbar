@@ -164,7 +164,12 @@
                 "title": "↻"
             },            
             {
-                "command": "nasc.touchBar.runSelection",
+                "command": "Powershell.RunSelection",
+                "group": "nasc",
+                "title": "{ >{} }"
+            },
+            {
+                "command": "workbench.action.terminal.runSelectedText",
                 "group": "nasc",
                 "title": "{ >{} }"
             }
@@ -554,5 +559,4 @@
         "@types/node": "^7.0.0",
         "@types/mocha": "^2.2.42"
     }
-
 }
